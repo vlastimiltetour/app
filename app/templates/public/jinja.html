@@ -1,0 +1,59 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Jinja{% endblock %}
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Jinja</h1>
+      <hr>
+      <h4>Accessing an objects value</h4>
+      <hr>
+      <p>Hello {{ my_name }}!</p>
+      <p>Hello my age is {{ my_age }}!</p>
+
+<!--      sem zadavam loop na zkousku-->
+      <h4>Looping through an iterable looks like this</h4>
+      <hr>
+
+      <strong class="d-block mb-3">Friends Names </strong>
+      <ul>
+        {% for friend in friends %}
+        <li> {{ loop.index0 }} - {{ friend}}</li>
+        {% endfor %}
+      </ul>
+
+      <h4>Looping through a friends list, haha ninja</h4>
+      <hr>
+      <strong class="d-block mb-3">Friendous & ages </strong>
+      <ul>
+        {% for name, age in friends.items() %}
+        <li> {{ name }} is {{ age }} old. </li>
+        {% endfor %}
+</ul>
+
+      <h4>Calling functions</h4>
+      <hr>
+      <p>{{ repeat("Jinja is great! ", 10) }}</p>
+
+      <h4>List index</h4>
+      <hr>
+      <p>{{ langs }}</p>
+      <p>{{ langs[0] }}</p>
+
+      <h4>Dictionary value</h4>
+      <hr>
+      <p>{{ friends["Tony"] }}</p>
+
+
+      <h4>Class attributes</h4>
+      <hr>
+      <p>{{ my_remote.description }}</p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
